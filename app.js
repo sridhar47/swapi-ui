@@ -1,5 +1,5 @@
 angular.module("swapi-ui", ['ngRoute','ngResource','ui.bootstrap', 'ngAnimate'])
-	.config(function($routeProvider){
+	.config(function($routeProvider, $locationProvider){
 		var resolve = {
             auth: (['$q', '$location', function ($q, $location) {
                 var defer = $q.defer();
@@ -29,4 +29,5 @@ angular.module("swapi-ui", ['ngRoute','ngResource','ui.bootstrap', 'ngAnimate'])
 			templateUrl: 'views/signup.html',
 			controller: 'signupController'
 		})
+        $locationProvider.html5Mode(true);
 	})
