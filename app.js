@@ -18,16 +18,22 @@ angular.module("swapi-ui", ['ngRoute','ngResource','ui.bootstrap', 'ngAnimate'])
         };
 
         $routeProvider
-        .when('/', {
+        .when("/", {
         	resolve: resolve
         })
-        .when('/login', {
-			templateUrl: 'views/login.html',
-			controller: 'loginController'
+        .when("/login", {
+			templateUrl: "views/login.html",
+			controller: "loginController"
 		})
-		.when('/signup', {
-			templateUrl: 'views/signup.html',
-			controller: 'signupController'
+		.when("/signup", {
+			templateUrl: "views/signup.html",
+			controller: "signupController"
 		})
-        $locationProvider.html5Mode(true);
+        .otherwise({
+            redirectTo: "/"
+        })
+        // $locationProvider.html5Mode({
+        //     enabled: true,
+        //     requireBase: false
+        // });
 	})
